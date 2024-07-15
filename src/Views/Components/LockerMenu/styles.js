@@ -26,33 +26,24 @@ const SiteLogo = styled.img`
   height: auto;
 `;
 const MenuLink = styled(Link)`
-  font-size: max(15px, 17px);
-  font-family: "poppins-light";
-  font-weight: bolder;
+  font-size: 16px;
+  font-family: "impact";
   color: ${ (props) => props.theme.textPrimary};
   text-transform: uppercase;
   text-decoration: none;
   padding: ${ (props) => props.p? props.p: '0 15px'};
   cursor: pointer;
   transition-duration: 0.5s;
-
+  padding: 13px 20px;
+  width: calc(60% - 50px);
+  text-align: center;
+  border-radius: 8px;
+  display: inline-block;
   &:hover, &:active, &:focus {
     color: #ffffff;
     transition-duration: 0.5s;
   }
-  @media (max-width: 899px) {
-    display: block;
-    padding: ${ (props) => props.p? props.p: '15px 0 15px 20px'};
-    text-align: left;
-  }
-  &:last-child {
-    border-width: 0px;
-    background: red;
-    width: calc(100% - 40px);
-    margin: 15px auto;
-    padding: 10px 20px;
-    text-align: center;
-  }
+
 `;
 
 const DrawerBox = styled(Box)`

@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: "impact";
+  src: url(./assets/fonts/impact.woff);
+}
+
+@media screen and (max-width: 650px) {
+  .MuiTypography-h3{
+    font-size: 30px !important;
+    text-shadow: 0 0 7px black;
+  }
+  .MuiTypography-h4{
+    font-size: 40px !important;
+    text-shadow: 0 0 7px black;
+  }
+}

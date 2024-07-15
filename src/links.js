@@ -1,6 +1,6 @@
-export const websiteLink = '#';
-export const tgLink = '#';
-export const xLink = '#';
+export const websiteLink = 'https://fight4trump.xyz/';
+export const tgLink = 'https://t.me/fight4trumpETH';
+export const xLink = 'https://x.com/fight4trumpETH';
 export const dexScreenerLink = '#';
 export const dexToolsLink = '#';
 export const uniSwapLink = '#';
