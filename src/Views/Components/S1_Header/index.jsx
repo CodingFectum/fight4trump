@@ -1,6 +1,6 @@
 import emotionStyled from '@emotion/styled'
 import { Box, Button, Container, Grid, Modal, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import bgImage from '../../../assets/shooter.mp4'
 import logo from '../../../assets/logo.png'
 
@@ -61,6 +61,7 @@ const IMG = emotionStyled.img`
 function S1header() {
     const [open, setOpen] = useState(true);
   const [playVideo, setPlayVideo] = useState(false);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     // This effect will run when the component mounts
@@ -75,30 +76,33 @@ function S1header() {
   const handlePlayVideo = () => {
     setOpen(false);
     setPlayVideo(true);
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
   };
 
   return (
     <SectionCover>
         <Modal
             open={open}
-            onClose={handleClose}
+            onClose={handlePlayVideo}
             aria-labelledby="modal-title"
             aria-describedby="modal-description"
         >
             <Box
-            sx={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: 400,
-                bgcolor: 'background.paper',
-                boxShadow: 24,
-                p: 4,
-                textAlign: 'center',
-                borderRadius: '40px',
-                background: '#0e1d3a'
-            }}
+                sx={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: 400,
+                    bgcolor: 'background.paper',
+                    boxShadow: 24,
+                    p: 4,
+                    textAlign: 'center',
+                    borderRadius: '40px',
+                    background: '#0e1d3a'
+                }}
             >
                 <Box style={{position:'relative'}}>
                     <IMG src={logo} />
@@ -110,17 +114,13 @@ function S1header() {
                     Did Biden do it?
                     </Typography>
                 </Box>
-            <Box mt={2}>
-                <Button variant="contained" style={{background:'#00d029'}} onClick={handlePlayVideo} sx={{ m: 1 }}>
-                YES
-                </Button>
-                <Button variant="contained" style={{background:'#d10000'}} onClick={handleClose} sx={{ m: 1 }}>
-                NO
-                </Button>
-            </Box>
+                <Box mt={2}>
+                    <Button variant="contained" style={{background:'#00d029'}} onClick={handlePlayVideo} sx={{ m: 1 }}>YES</Button>
+                    <Button variant="contained" style={{background:'#d10000'}} onClick={handlePlayVideo} sx={{ m: 1 }}>YES, but in red</Button>
+                </Box>
             </Box>
         </Modal>
-        <AbsoluiteBackgroundVideo src={bgImage} muted={!playVideo} autoPlay={!playVideo} />
+        <AbsoluiteBackgroundVideo ref={videoRef} src={bgImage} />
         <Container maxWidth="xl">
             <Grid container>
                 <Grid xs={12}>
