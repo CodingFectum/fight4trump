@@ -120,7 +120,7 @@ function S1header() {
             </Box>
             </Box>
         </Modal>
-        <AbsoluiteBackgroundVideo src={bgImage} muted={!playVideo} autoPlay={!playVideo} loop />
+        <AbsoluiteBackgroundVideo src={bgImage} muted={!playVideo} autoPlay={!playVideo} />
         <Container maxWidth="xl">
             <Grid container>
                 <Grid xs={12}>
